@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+import MyNavbar from './components/navbar';
 import './App.css';
+import {BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
+import Register from './components/Register';
+import TodoList from './components/TodoList';
+import AllUsers from './components/Allusers';
+import Friends from "./components/Friends"
+import Messenges from './components/Messenges';
+import Profile from './components/Profile';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
+import SelectAvatar from './components/SelectAvatar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>  
+   <BrowserRouter>
+   <MyNavbar />
+   <Routes>
+     <Route path="/" element={<Login></Login>} />
+     <Route path="/register" element={<Register></Register>} />
+     <Route path="todolist/:userID" element={<TodoList></TodoList>} />
+     <Route path="/users" element={<AllUsers></AllUsers>} />
+     <Route path="/friends" element={<Friends></Friends>} />
+     <Route path="/messenges" element={<Messenges></Messenges>} />
+     <Route path="/select-avatar" element={<SelectAvatar></SelectAvatar>} />
+     <Route path="/profile" element={<Profile></Profile>} />
+   
+   </Routes>
+    </BrowserRouter>
+   </>
+  
+    
+  
   );
 }
 

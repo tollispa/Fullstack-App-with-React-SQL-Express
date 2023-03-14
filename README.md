@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+React Todo App with User Authentication, Friend Management, and Messaging.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Welcome to the React Todo App with User Authentication, Friend Management, and Messaging! This is a full-stack web application built with React, Express, and MySQL that allows users to create and manage todo lists, add friends, and send messages to their friends.
 
-In the project directory, you can run:
+Getting Started
+To get started with the React Todo App, you will need to have Node.js and MySQL installed on your local machine.
+Go to the server and run node index.js to start the server.
+then go to the client and run npm start to start the client.
 
-### `npm start`
+Features
+User Authentication
+Users can create a new account with their name and password. Once registered, users can log in to their account with their name and password. Users can also log out of their account at any time.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Todo Lists
+Users can create new todo lists with a title and description. Users can view their own todo lists on the home page, and they can edit or delete their own todo lists. Additionally, users can view their friends' shared todo lists on the friends page, but have no authorization to edit or delete them.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Friend Management
+Users can see a list of all users that are registered. Then can add whoever they want. Users can view their friends on the friends page. Users can also remove friends from their friend list.
 
-### `npm test`
+Messaging
+Users can send messages to their friends from the friend list. Users can view their messages with a friend on the messages page. Users can see who sent the message and what time it was sent, they can also delete the message.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Avatar Image Selector API
+This project is an API that allows users to choose from a selection of 10 avatar images and use them as their profile picture. When a user clicks on an avatar image, the image is added to the user's database entry and displayed as their profile avatar in the frontend.
 
-### `npm run build`
+How it Works
+The API is built with Node.js and uses SQL to store user data. Here's an overview of how it works:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+When a user logs in to the app, their user data is retrieved from the SQL database.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In the frontend, the user is presented with a selection of 10 avatar images to choose from.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When the user clicks on an avatar image, the API receives a POST request with the user's ID and the URL of the selected avatar image.
 
-### `npm run eject`
+The API updates the user's database and stores the selected avatar image URL in the user's row.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+When you go to the "Users" route you can see all users name and their chosen avatar images.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Technologies I Used
+The React Todo App with User Authentication, Friend Management, and Messaging was built using the following technologies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+React
+Express
+MySQL
+React Router
+React Bootstrap
+Axios
+Node.js
