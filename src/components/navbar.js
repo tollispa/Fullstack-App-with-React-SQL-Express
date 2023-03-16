@@ -15,6 +15,7 @@ function MyNavbar() {
     axios.get("http://localhost:4000/user")
     .then((res) => {
         setUser(res.data)
+        console.log(res.data)
         
         
     })
@@ -33,11 +34,13 @@ function MyNavbar() {
   }, [])
 
   let avatar = user.map((user) => user.avatar_url)
+  const nr = user.map((user) => user.total_friends)
+  const totalMessages = user.map((user) => user.total_messages_received)
   
   if(avatar[0] === "") {
     avatar = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
   }
-  console.log(avatar)
+  
   return (
     <Navbar style={{ backgroundColor: `black` }} expand="lg">
       <Container>
@@ -46,8 +49,8 @@ function MyNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/users" style={{ color: 'white', display: `${navBarUsers}`, marginLeft: "5px", cursor: "pointer" }}>Users👥</Nav.Link>
-            <Nav.Link href="/friends" style={{ color: 'white', display: `${navBarUsers}`, marginLeft: "30px", cursor: "pointer" }}>Friends 👫</Nav.Link>
-            <Nav.Link href="/messenges" style={{ color: 'white', display: `${navBarUsers}`, marginLeft: "30px", cursor: "pointer" }}>Messages 📩</Nav.Link>
+            <Nav.Link href="/friends" style={{ color: 'white', display: `${navBarUsers}`, marginLeft: "30px", cursor: "pointer" }}>Friends(<span style={{color: "red"}}>{nr}</span>)👫</Nav.Link>
+            <Nav.Link href="/messenges" style={{ color: 'white', display: `${navBarUsers}`, marginLeft: "30px", cursor: "pointer" }}>Messages(<span style={{color: "red"}}>{totalMessages}</span>)📩</Nav.Link>
             <Nav.Link href="/register" style={{ color: 'white', marginLeft: "30px", cursor: "pointer", display: `${register}` }}>Register 🔑</Nav.Link>
             <NavDropdown style={{display: `${navBarUsers}`, position: "absolute", right: "90px"}}
             

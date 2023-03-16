@@ -56,18 +56,22 @@ if(messege.length === 0) {
   return (
     <div key={messeges.id} style={{ 
         fontSize: "15px",
-        margin: '5px 0',
+        margin: '3px',
         padding: '10px', 
         backgroundColor: '#f7f7f7', 
         border: '1px solid #ccc',
         borderRadius: '5px',
         display: "inline-block",
+        minWidth: "300px",
+        maxWidth: "300px",
+        maxHeight: "200px",
+        minHeight: "150px"
         
       }}>
      
-      <p><strong>Message:</strong> <span style={{fontFamily: 'cursive', color: "blue"}}>{messeges.message_text}</span></p>
+      <p><strong></strong> <span style={{fontFamily: 'cursive', marginLeft: "0px",color: "white", backgroundColor: "lightBlue", paddingTop: "5px", paddingBottom: "5px", paddingLeft: "10px", paddingRight: "10px", borderRadius: "15px"}}>{messeges.message_text}</span></p>
       <p><strong>From:</strong> {messeges.sender_name}</p>
-      <p><strong>Sent:</strong> {messeges.received_at.replace("T", " ").substring(0, 19)}</p>
+      <p><strong>Sent:</strong> {messeges.received_at.replace("T", " ").substring(0, 16)}</p>
       <button onClick={() => deleteMessage(messeges.id)}
       style={{backgroundColor: "red", border: "2px solid red", borderRadius: "5px", color: "white"}}>Delete message</button>
     </div>
