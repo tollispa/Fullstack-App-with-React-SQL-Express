@@ -9,13 +9,11 @@ const {deleteTodos} = require("./deleteTodo");
 todos.get("/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const userId = req.session.userId;
-  const checkIfFriends = `SELECT 
-    CASE 
-      WHEN COUNT(*) > 0 THEN 'Yes' 
-      ELSE 'No' 
-    END AS are_friends 
-    FROM friend 
-    WHERE (user_id = LEAST(${userId}, ${id}) AND friend_id = GREATEST(${userId}, ${id}));`;
+
+  const checkIfFriends = `  SELECT
+  CASE WHEN COUNT(*) > 0 THEN 'Yes' ELSE 'No' END AS are_friends
+FROM friend
+WHERE (user_id = ${userId} AND friend_id = ${id}) OR (user_id = ${id} AND friend_id = ${userId});`
 
   db.query(checkIfFriends, (err, result) => {
     if (err) {
@@ -27,6 +25,7 @@ todos.get("/:id", (req, res) => {
     const are_friends = result[0].are_friends;
     if (are_friends === "No" && userId !== id) {
       res.sendStatus(401);
+    
      
       return;
     }
