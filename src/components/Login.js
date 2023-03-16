@@ -24,7 +24,7 @@ function Login() {
          setLoginForm("none")
          setLogoutBtn("inline-block")
         console.log(res)
-         
+          
         }).catch((err) => {
       
         console.log(err)
@@ -43,7 +43,7 @@ useEffect(() => {
   })
 }, [])
 
-    axios.defaults.withCredentials = true;
+  
     const handleSubmit = (e) => {
         e.preventDefault();  
         if (name === "" || password === "") {

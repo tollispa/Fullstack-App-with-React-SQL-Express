@@ -4,8 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 function SelectAvatar() {
     const [avatar, setAvatar] = useState([])
-    axios.defaults.withCredentials = true;
-
+ 
     useEffect(() => {
         axios.get("http://localhost:4000/avatars")
         .then((res) => {

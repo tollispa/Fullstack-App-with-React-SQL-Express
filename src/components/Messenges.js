@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 function Messenges() {
     const [messege, setMessege] = useState([])
     const navigate = useNavigate()
-    axios.defaults.withCredentials = true;
+   
 
     useEffect(()=> {
         axios.get("http://localhost:4000/isLoggedIn")

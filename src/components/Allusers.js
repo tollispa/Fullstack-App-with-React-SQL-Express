@@ -5,16 +5,15 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import {useNavigate} from "react-router-dom"
 import { ToastContainer, toast } from 'react-toastify';
-// import {  MenuItem, Select } from "@mui/material";
+
 
 function AllUsers() {
   const [users, setUsers] = useState([]);
  
   const navigate = useNavigate();
-  // const [gender, setGender] = useState("")
-  // const howManyUsers = users.length
  
-  axios.defaults.withCredentials = true;
+ 
+  
   useEffect(() => {
     axios.get("http://localhost:4000/users")
       .then((res) => {

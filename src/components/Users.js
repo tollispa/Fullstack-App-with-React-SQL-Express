@@ -12,7 +12,7 @@ const [desc, setDesc] = useState("")
 const [display, setDisplay] = useState("hidden")
 
 
-axios.defaults.withCredentials = true;
+
 const onSubmit = (e) => {
     e.preventDefault()
     axios.post("http://localhost:4000/createtodo", {

@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 function Profile() {
 const [friends, setFriends] = useState([])
 
-axios.defaults.withCredentials = true;
+
 useEffect(() => {
 axios.get("http://localhost:4000/user")
 .then((res) => {

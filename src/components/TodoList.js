@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 function TodoList() {
     const {userID} = useParams();
     const [todos, setTodos] = useState([]);
-    axios.defaults.withCredentials = true;
+  
 
     const completed = (ID) => {
       axios.put(`http://localhost:4000/completedtodos/${userID}`, {

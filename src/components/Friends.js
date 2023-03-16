@@ -23,7 +23,7 @@ function Friends() {
       
       
       setShowModal(true);}
-    axios.defaults.withCredentials = true;
+    
     const handleSendMessage = (name) => {
       if (messageText === "") {
         return toast.error("Please enter a message!")
