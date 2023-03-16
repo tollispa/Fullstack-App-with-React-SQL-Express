@@ -13,8 +13,7 @@ function Register() {
     const [checkpwd, setCheckpwd] = useState("");
     const [gender, setGender] = useState("");
     const [age, setAge] = useState("");
-    axios.defaults.withCredentials = true;
-
+   
     const handleSubmit = (e) => {
         e.preventDefault();
        

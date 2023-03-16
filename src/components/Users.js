@@ -66,7 +66,7 @@ setDisplay("hidden")
         sx={{ mb: 2 }}
       />
       <br />
-      <Button variant="contained" style={{backgroundColor: "grey"}}onClick={onSubmit}>
+      <Button variant="contained" style={{backgroundColor: "green"}}onClick={onSubmit}>
         Submit List
       </Button>
     </div>

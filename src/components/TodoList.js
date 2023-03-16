@@ -81,7 +81,7 @@ if (todos.length === 0) {
                 <br/><Button style={{ backgroundColor: 'black', color:"white", marginLeft: "20px", marginRight: "5px"}}onClick={() => deleteTodo(todo.id)}>Delete Todo</Button>
                  {todo.completed === 1 ? (
         <Button style={{ backgroundColor: 'green', color:"white"}} onClick={() => completed(todo.id) }>
-          Completed
+          Completed ✔️
         </Button>
       ) : (
         <Button style={{ backgroundColor: 'red', color:"white" }} onClick={() => completed(todo.id) }>

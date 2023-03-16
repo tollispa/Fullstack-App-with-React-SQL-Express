@@ -114,7 +114,7 @@ toast.success(res.data.messege)
         }}
       >
         {friend.name}
-        <Button onClick={() => handleShow(friend.name)} style={{ marginLeft: "15px", backgroundColor: "lightBlue", color: "white", maxWidth: "150px", minWidth: "150px"}}>Message 💬</Button>
+        <Button onClick={() => handleShow(friend.name)} style={{ marginLeft: "15px", backgroundColor: "lightBlue", color: "white", maxWidth: "150px", minWidth: "150px"}}>Message 💭</Button>
 
 <Modal show={showModal} onHide={handleClose}>
   <Modal.Header closeButton>

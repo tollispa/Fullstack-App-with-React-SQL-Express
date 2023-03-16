@@ -26,7 +26,7 @@ function MyNavbar() {
       .then((res) => {
         setNavbarUsers("block")
         setRegister("none")
-        setLogin("Home")
+        setLogin("Home🏠")
         console.log(res)
       }).catch((err) => {
         console.log(err)
