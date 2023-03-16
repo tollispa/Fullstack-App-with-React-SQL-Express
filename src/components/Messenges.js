@@ -67,7 +67,7 @@ if(messege.length === 0) {
      
       <p><strong>Message:</strong> <span style={{fontFamily: 'cursive', color: "blue"}}>{messeges.message_text}</span></p>
       <p><strong>From:</strong> {messeges.sender_name}</p>
-      <p><strong>Sent:</strong> {messeges.received_at}</p>
+      <p><strong>Sent:</strong> {messeges.received_at.replace("T", " ").substring(0, 19)}</p>
       <button onClick={() => deleteMessage(messeges.id)}
       style={{backgroundColor: "red", border: "2px solid red", borderRadius: "5px", color: "white"}}>Delete message</button>
     </div>
