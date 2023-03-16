@@ -17,7 +17,7 @@ postTodo.post("/", (req, res) => {
     return
   }
   const userId = parseInt(req.session.userId)
-  console.log("userID:", userId)
+  
   const { error } = todoSchema.validate(req.body);
  
 if (error) {

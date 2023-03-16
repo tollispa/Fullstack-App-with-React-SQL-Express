@@ -22,7 +22,7 @@ completedTodos.put("/:id", (req, res) => {
 const query = `UPDATE todos SET completed = NOT completed WHERE id = ${todoID} AND user_id = ${userID}`
 if (ID !== userID) {
     
-    return res.status(404).send({messege: "Not authorized!"})
+    return res.status(401).send({messege: "Not authorized!"})
 }
 
 db.query(query, (err, result) => {
