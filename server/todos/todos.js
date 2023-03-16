@@ -27,7 +27,7 @@ todos.get("/:id", (req, res) => {
     const are_friends = result[0].are_friends;
     if (are_friends === "No" && userId !== id) {
       res.sendStatus(401);
-      console.log("not friends")
+     
       return;
     }
 

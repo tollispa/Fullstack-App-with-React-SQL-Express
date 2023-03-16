@@ -23,8 +23,14 @@ function SelectAvatar() {
         })
     }
     return ( 
+      <>
+        <h1 style={{ fontSize: '36px', fontWeight: 'bold', color: '#333', textAlign: 'center' }}>
+  Select Your Avatar
+</h1>
+
         <div>
-         <h1>Select your Avatar!</h1>
+      
+
 <div style={{ display: "flex", flexWrap: "wrap" }}>
   {avatar.map((avatars) => {
     return (
@@ -50,6 +56,7 @@ function SelectAvatar() {
 
            <ToastContainer/>
         </div>
+        </>
      );
 }
 

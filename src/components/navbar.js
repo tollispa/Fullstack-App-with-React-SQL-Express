@@ -9,21 +9,35 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 function MyNavbar() {
   const [navBarUsers, setNavbarUsers] = useState("none")
   const [login, setLogin] = useState("Login")
-  
+  const [register, setRegister] = useState("block")
+  const [user, setUser] = useState([])
+  useEffect(() => {
+    axios.get("http://localhost:4000/user")
+    .then((res) => {
+        setUser(res.data)
+        
+        
+    })
+    }, [])
 
   useEffect(() => {
     axios.get("http://localhost:4000/isLoggedIn")
       .then((res) => {
         setNavbarUsers("block")
-        setLogin(res.data + "'s Page")
+        setRegister("none")
+        setLogin("Home")
         console.log(res)
       }).catch((err) => {
         console.log(err)
       })
   }, [])
 
+  let avatar = user.map((user) => user.avatar_url)
   
-
+  if(avatar[0] === "") {
+    avatar = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+  }
+  console.log(avatar)
   return (
     <Navbar style={{ backgroundColor: `black` }} expand="lg">
       <Container>
@@ -33,11 +47,13 @@ function MyNavbar() {
           <Nav className="me-auto">
             <Nav.Link href="/users" style={{ color: 'white', display: `${navBarUsers}`, marginLeft: "5px", cursor: "pointer" }}>Users👥</Nav.Link>
             <Nav.Link href="/friends" style={{ color: 'white', display: `${navBarUsers}`, marginLeft: "30px", cursor: "pointer" }}>Friends 👫</Nav.Link>
-            <Nav.Link href="/messenges" style={{ color: 'white', display: `${navBarUsers}`, marginLeft: "30px", cursor: "pointer" }}>Messanges 📩</Nav.Link>
-            <Nav.Link href="/register" style={{ color: 'white', marginLeft: "30px", cursor: "pointer" }}>Register 🔑</Nav.Link>
-            <NavDropdown style={{display: `${navBarUsers}`, position: "absolute", right: "90px"}}title="Settings " id="basic-nav-dropdown" className="account-dropdown">
-  <NavDropdown.Item href="/select-avatar">Select Avatar</NavDropdown.Item>
-  <NavDropdown.Item href="/profile">Account</NavDropdown.Item>
+            <Nav.Link href="/messenges" style={{ color: 'white', display: `${navBarUsers}`, marginLeft: "30px", cursor: "pointer" }}>Messages 📩</Nav.Link>
+            <Nav.Link href="/register" style={{ color: 'white', marginLeft: "30px", cursor: "pointer", display: `${register}` }}>Register 🔑</Nav.Link>
+            <NavDropdown style={{display: `${navBarUsers}`, position: "absolute", right: "90px"}}
+            
+            title={<div><img alt={avatar}style={{height: "30px", width: "30px", marginRight: "8px", borderRadius: "5px", objectFit: "cover"}}src={avatar}/>Settings</div>} id="basic-nav-dropdown" className="account-dropdown">
+  <NavDropdown.Item href="/select-avatar">Select Avatar 📷</NavDropdown.Item>
+  <NavDropdown.Item href="/profile">Account 🔧</NavDropdown.Item>
 </NavDropdown>
           </Nav>
         </Navbar.Collapse>

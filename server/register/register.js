@@ -32,6 +32,7 @@ register.post("/", (req, res) => {
     db.query(checkName, [name], (err, result) => {
         if(err) {
             console.log(err)
+            res.sendStatus(500)
         }
         if (result.length > 0) {
             res.status(409).send("Username already taken");
@@ -42,7 +43,7 @@ register.post("/", (req, res) => {
                     console.log(err)
                     res.status(500).send("Error registering user");
                 } else {
-                    console.log("added user: ", name)
+                    
                     res.send("User added!")
                 }
             })

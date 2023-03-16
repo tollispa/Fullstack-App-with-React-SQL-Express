@@ -46,48 +46,17 @@ const addFriend = (ID) => {
   }).catch((err) => {
    toast.error(err.response.data.messege)
   })
+ 
 
 }
-
-// const filterUsersByGender = (e) => {
-//   e.preventDefault()
-
-// const searchGender = users.filter((user) => user.gender === gender)
-// console.log(searchGender)
+ 
+  const avatar = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
   
-// }
 
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      {/* <div style={{position: "sticky", right: "0px", top: "0px"}}>
-      <label style={{ 
-  fontSize: '1.2rem', 
-  fontWeight: 'bold', 
-  color: 'gray', 
-  marginBottom: '10px',
-  marginRight: "10px",
-  maxWidth: "200px",
-  display: "block"
-}}>
-Filter by gender
-</label>
-
-        <Select
-          labelId="gender-label"
-          id="gender-select"
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-          >
-          
-          <MenuItem value="male">Male</MenuItem>
-          <MenuItem value="female">Female</MenuItem>
-        </Select>
-        <Button 
-        onClick={filterUsersByGender}
-        style={{backgroundColor: "black", color: "white", paddin: "5px", margin: "5px"}}>Submit</Button>
-        </div>
-     */}
+     
       
 
 
@@ -101,7 +70,7 @@ Filter by gender
               </Button><br/>
               
               <Button style={{backgroundColor: "grey", color: "white", maxWidth: "250px", minWidth: "200px", marginTop: "5px"}}onClick={() => addFriend(user.id)}>Add {user.name}</Button>
-              <strong><img style={{maxHeight: "100px", width: "100px", padding: "10px"}} src={user.avatar_url} alt={user.avatar_url}/></strong>
+              <strong><img style={{maxHeight: "100px", width: "100px", padding: "10px", borderRadius: "30%"}} src={user.avatar_url ? user.avatar_url : avatar} alt={user.avatar_url}/></strong>
               <br/><strong style={{color: "grey"}}>Last seen online: <span style={{color: "lightBlue"}}>{user.last_seen_online}</span></strong>
             </p>
           ))}

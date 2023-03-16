@@ -1,9 +1,18 @@
 const express = require("express");
 const addFriend = express.Router();
+const Joi = require("joi")
 
 const db = require("../database/db");
 
 addFriend.post("/", (req, res) => {
+    const addFriendSchema = Joi.object({
+        id: Joi.number().integer().positive().required(),
+      });
+      const { error } = addFriendSchema.validate(req.body);
+  if (error) {
+    return res.status(400).send({ message: error.details[0].message });
+  }
+    
     const userID = req.session.userId
     const friendID = req.body.id
   
@@ -28,8 +37,9 @@ addFriend.post("/", (req, res) => {
             db.query(query, [userID, friendID], (err, result) => {
                 if (err) {
                     console.log(err)
+                    res.sendStatus(500)
                 } else {
-                    console.log(userID, "Added the friend: ", friendID)
+                   
                     res.send({messege: "Added to your friendslist!"})
                 }
             })

@@ -7,7 +7,9 @@ const Joi = require('joi');
 messengeFriend.post("/", (req, res) => {
 
     const messageSchema = Joi.object({
-        messege: Joi.string().max(25).required()
+        messege: Joi.string().max(25).required(),
+        name: Joi.string().required(),
+
       });
     
     const userSendingMessege = req.session.userId 
@@ -20,22 +22,22 @@ JOIN users receiver ON receiver.name = '${recieverMessege}'
 LEFT JOIN friend ON (friend.user_id = sender.id AND friend.friend_id = receiver.id)
 WHERE sender.id = ${userSendingMessege}`
 
-const { error } = messageSchema.validate({ messege });
+const { error } = messageSchema.validate(req.body);
 
 
-if (error) {
+if (error) {  
   res.status(400).json({ error: error.details[0].message });
   return;
 }      
 
-    console.log(userSendingMessege, "Sent messege:", messege, "to", recieverMessege)
+    
    db.query(query, (err, result) => {
     
     if (err) {
         console.log(err)
-        res.sendStatus(404)
+        res.sendStatus(500)
     }else {
-        console.log("Messenge send!")
+        
         res.sendStatus(200)
     }
    })

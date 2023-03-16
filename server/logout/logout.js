@@ -1,9 +1,19 @@
 const express = require("express");
 const logout = express.Router();
+const Joi = require('joi');
 
 const db = require("../database/db");
 
 logout.post("/", (req, res) => {
+  const logoutSchema = Joi.object({
+    userId: Joi.number().integer().positive().required(),
+  });
+  
+  const { error } = logoutSchema.validate({ userId: req.session.userId });
+  if (error) {
+    return res.status(400).send({ message: error.details[0].message });
+  }
+
   const now = new Date();
 const hours = now.getHours().toString().padStart(2, '0')
 const minutes = now.getMinutes().toString().padStart(2, '0')
@@ -21,6 +31,7 @@ if(!sessionID) {
 }
 db.query(query, [timestamp, user], (err,result) => {
   if(err) {
+    res.sendStatus(500)
     console.log(err)
   }
   res.clearCookie("userId", { path: "/" })

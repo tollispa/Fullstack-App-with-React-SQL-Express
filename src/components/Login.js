@@ -30,11 +30,25 @@ function Login() {
         console.log(err)
         })
         },[])
+useEffect(() => {
+  axios.get("http://localhost:4000/user")
+  .then((res) => {
+    console.log("new ", res.data[0].name)
+    if(res.data[0].avatar_url === "") {
+      setTimeout(() => {
+        toast.info("Go to Settings to select your Avatar!")
+      }, 3000)
 
+    }
+  })
+}, [])
 
     axios.defaults.withCredentials = true;
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault();  
+        if (name === "" || password === "") {
+          return toast.error("Please fill in the empty input!")
+        }
         axios.post("http://localhost:4000/login", {
             name: name.trim(), 
             password: password

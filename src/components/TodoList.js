@@ -10,25 +10,27 @@ function TodoList() {
     const {userID} = useParams();
     const [todos, setTodos] = useState([]);
     axios.defaults.withCredentials = true;
+
     const completed = (ID) => {
-        axios.put(`http://localhost:4000/completedtodos/${userID}`, {
-            id: ID
-        }).then((res) => {
-          console.log(res)
-        
-        }
-          
-          
-        ).catch((err) => {
+      axios.put(`http://localhost:4000/completedtodos/${userID}`, {
+        id: ID
+      }).then((res) => {
+        console.log(ID)
+        axios.get(`http://localhost:4000/todos/${userID}`).then((res) => {
+          setTodos(res.data);
+        }).catch((err) => {
           toast.error(err.response.data.messege)
-        })
-        
+        });
+      }).catch((err) => {
+        toast.error(err.response.data.messege)
+      });
     }
 
     useEffect(() => {
         axios.get(`http://localhost:4000/todos/${userID}`)
             .then((res) => {
                 setTodos(res.data);
+                console.log(res.data)
                
             })
             .catch((error) => {
@@ -42,8 +44,13 @@ function TodoList() {
             id: ID
           }
         }).then((res) => {
-          console.log(res)
           console.log(ID)
+          axios.get(`http://localhost:4000/todos/${userID}`).then((res) => {
+            setTodos(res.data);
+          }).catch((err) => {
+            toast.error(err.response.data.messege)
+          });
+          
         }).catch((err) => {
           toast.error(err.response.data.messege)
         })

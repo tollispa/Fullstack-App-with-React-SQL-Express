@@ -32,7 +32,7 @@ app.use(session({
     cookie: {
         domain: "localhost",
         path: "/",
-        expires: 60 * 60 * 24,
+        maxAge: 1000 * 60 * 24,
         httpOnly: true
       
     },

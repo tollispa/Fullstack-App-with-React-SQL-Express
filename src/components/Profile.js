@@ -1,7 +1,7 @@
 import axios from "axios"
 import {useState, useEffect} from "react"
 import {Link} from "react-router-dom"
-
+import Button from '@mui/material/Button';
 function Profile() {
 const [friends, setFriends] = useState([])
 
@@ -14,13 +14,14 @@ axios.get("http://localhost:4000/user")
     
 })
 }, [])
-
-
-
+const onclick=(e) => {
+  e.preventDefault()
+  alert("Ingen funktion än")
+}
 
     return (
         <>
-        <h1 style={{ textAlign: "center", margin: "20px 0" }}>Your Account</h1>
+        <h1 style={{ textAlign: "center", margin: "20px 0", fontWeight:"bold", color: "#333"}}>Your Account</h1>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <form style={{ width: "50%", textAlign: "left" }}>
             <p>
@@ -29,24 +30,25 @@ axios.get("http://localhost:4000/user")
             </p>
             <p>
               <span style={{ fontWeight: "bold" }}>Age:</span>{" "}
-              {friends.map((friend) => friend.age)}
+              {friends.map((friend) => friend.age === 0 ? "(?)" : friend.age)}
             </p>
             <p>
               <span style={{ fontWeight: "bold" }}>Gender:</span>{" "}
-              {friends.map((friend) => friend.gender)}
+              {friends.map((friend) => friend.gender === "" ? "(?)" : friend.gender)}
             </p>
             <p>
               <span style={{ fontWeight: "bold" }}>Avatar:</span>{" "}
               <img
-                style={{ height: "50px", width: "50px", borderRadius: "50%" }}
+                style={{ height: "50px", width: "50px", borderRadius: "30%" }}
                 src={friends.map((friend) => friend.avatar_url)}
                 alt="Avatar"
               />
             </p>
+            <button onClick={onclick} style={{backgroundColor: "black", color: "white", maxWidth: "100%", maxHeight: "100%", border: "2px solid black", borderRadius: "5px"}}>Remove Avatar</button>
             <p>
               Go to{" "}
               <Link to="/select-avatar" style={{ fontWeight: "bold" }}>
-                Select Avatar
+                Avatar
               </Link>{" "}
               to change your avatar.
             </p>
@@ -61,6 +63,7 @@ axios.get("http://localhost:4000/user")
               </Link>{" "}
               to add more!
             </p>
+            <Button onClick={onclick}style={{backgroundColor: "red", color:"white"}}>Delete Account</Button>
           </form>
         </div>
       </>
