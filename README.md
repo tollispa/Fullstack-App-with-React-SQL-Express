@@ -1,4 +1,4 @@
-React Todo App with User Authentication, Friend Management, Messaging Friends and Profile Picture Choosing.
+React App with User Authentication, Friend Management, Messaging Friends Profile Picture Choosing, and blog Posts.
 
 
 Welcome to the React Todo App with User Authentication, Friend Management, and Messaging! This is a full-stack web application built with React, Express, and MySQL that allows users to create and manage todo lists, add friends, and send messages to their friends.
@@ -21,8 +21,11 @@ Users can see a list of all users that are registered. Then can add whoever they
 Messaging
 Users can send messages to their friends from the friend list. Users can view their messages with a friend on the messages page. Users can see who sent the message and what time it was sent, they can also delete the message.
 
+Blog posts
+Users that are logged in can post blogs that comes up on their "Feed" Homepage. Users can delete their own post and also see all their added friends posts there.
+
 Avatar Image Selector API
-This project is an API that allows users to choose from a selection of 10 avatar images and use them as their profile picture. When a user clicks on an avatar image, the image is added to the user's database entry and displayed as their profile avatar in the frontend.
+I created my own API with SQL database that allows users to choose from a selection of 10 avatar images and use them as their profile picture. When a user clicks on an avatar image, the image is added to the user's database entry and displayed as their profile avatar in the frontend.
 
 How it Works
 The API is built with Node.js and uses SQL to store user data. Here's an overview of how it works:
