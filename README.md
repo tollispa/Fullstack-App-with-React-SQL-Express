@@ -1,7 +1,7 @@
-React App with User Authentication, Friend Management, Messaging Friends Profile Picture Choosing, and blog Posts.
+React Fullstack App with User Authentication, Friend Management, Messaging Friends Profile Picture Choosing, and blog Posts.
 
 
-Welcome to the React Todo App with User Authentication, Friend Management, and Messaging! This is a full-stack web application built with React, Express, and MySQL that allows users to create and manage todo lists, add friends, and send messages to their friends.
+Welcome to the React Todo App with User Authentication, Friend Management, and Messaging! This is a full-stack web application built with React, Express, and MySQL that allows users to create and manage todo lists, add friends, add Profile pics, upload posts and send messages to their friends.
 
 Getting Started
 To get started with the React Todo App, you will need to have Node.js and MySQL installed on your local machine.
