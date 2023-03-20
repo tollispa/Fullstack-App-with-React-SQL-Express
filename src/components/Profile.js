@@ -18,6 +18,12 @@ const onclick=(e) => {
   e.preventDefault()
   alert("Ingen funktion än")
 }
+const deleteAccount = () => {
+  axios.delete("http://localhost:4000/deleteaccount")
+  .then((res) => {
+    console.log(res)
+  })
+}
 
     return (
         <>
@@ -34,13 +40,13 @@ const onclick=(e) => {
             </p>
             <p>
               <span style={{ fontWeight: "bold" }}>Gender:</span>{" "}
-              {friends.map((friend) => friend.gender === "" ? "(?)" : friend.gender)}
+              {friends.map((friend) => friend.gender === "male" ? "♂️" : "♀️")}
             </p>
             <p>
               <span style={{ fontWeight: "bold" }}>Avatar:</span>{" "}
               <img
                 style={{ height: "50px", width: "50px", borderRadius: "30%" }}
-                src={friends.map((friend) => friend.avatar_url)}
+                src={friends.map((friend) => friend.avatar_url === "" ? "No avatar" : friend.avatar_url)}
                 alt="Avatar"
               />
             </p>
@@ -63,7 +69,7 @@ const onclick=(e) => {
               </Link>{" "}
               to add more!
             </p>
-            <Button onClick={onclick}style={{backgroundColor: "red", color:"white"}}>Delete Account</Button>
+            <Button onClick={deleteAccount}style={{backgroundColor: "red", color:"white"}}>Delete Account</Button>
           </form>
         </div>
       </>

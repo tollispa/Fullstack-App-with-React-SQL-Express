@@ -13,6 +13,7 @@ import axios from "axios"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import SelectAvatar from './components/SelectAvatar';
+import Users from './components/Users';
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -29,6 +30,8 @@ function App() {
      <Route path="/messenges" element={<Messenges></Messenges>} />
      <Route path="/select-avatar" element={<SelectAvatar></SelectAvatar>} />
      <Route path="/profile" element={<Profile></Profile>} />
+     <Route path="/create-todo" element={<Users></Users>} />
+
    
    </Routes>
     </BrowserRouter>

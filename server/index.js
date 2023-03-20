@@ -22,6 +22,10 @@ const deleteMessage = require("./friends/deleteMessage")
 const avatars = require("./database/avatars")
 const selectAvatar = require("./Avatars/selectAvatar")
 const User = require("./database/UserInfo")
+const deleteAcc = require("./deleteAccount/deleteAcc")
+const post  = require("./post/Post")
+const getPost = require("./post/GetPosts")
+const deletePost = require("./post/deletePosts")
 
 app.use(session({
     key: "userId",
@@ -65,6 +69,10 @@ app.use("/deletemessage", deleteMessage)
 app.use("/avatars", avatars)
 app.use("/selectavatar", selectAvatar)
 app.use("/user", User)
+app.use("/deleteaccount", deleteAcc)
+app.use("/post", post)
+app.use("/getposts", getPost)
+app.use("/deleteposts", deletePost)
 
 
 app.get("/isLoggedIn", (req, res) => {

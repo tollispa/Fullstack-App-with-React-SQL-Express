@@ -47,7 +47,7 @@ function Register() {
     
        
        <h1>Register</h1>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" style={{display: "inline-block", margin: "10px", padding: "15px", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px"}}onSubmit={handleSubmit}>
         <TextField 
           label="Name"
           value={name}
@@ -114,7 +114,7 @@ function Register() {
           Submit
         </Button>
       </form>
-      <p>Already have an account? Go to <Link to="/login">login</Link></p>
+      <p>Already have an account? Go to <Link to="/">login</Link></p>
              
 
 <ToastContainer/>

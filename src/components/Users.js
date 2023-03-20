@@ -44,12 +44,12 @@ setDisplay("hidden")
   },[])
 
     return ( 
-        <>
+        <div style={{position: "absolute", left: "40%", top: "10%"}}>
          
     
    
-      <div style={{visibility: `${display}`}}>
-      <h1 style={{fontSize: "20px", paddingTop: "20px"}}>Add TodoList</h1>
+      <div style={{visibility: `${display}`, display: "inline-block", margin: "10px", textAlign: "center",padding: "10px", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "5px"}}>
+      <h1 style={{fontSize: "20px", paddingTop: "10px"}}>Add TodoList</h1>
       <TextField
         label="Title"
         value={title}
@@ -66,7 +66,7 @@ setDisplay("hidden")
         sx={{ mb: 2 }}
       />
       <br />
-      <Button variant="contained" style={{backgroundColor: "green"}}onClick={onSubmit}>
+      <Button variant="contained" style={{backgroundColor: "lightblue"}}onClick={onSubmit}>
         Submit List
       </Button>
     </div>
@@ -74,7 +74,7 @@ setDisplay("hidden")
    
 <ToastContainer/>
 
-        </>
+        </div>
      );
 }
 

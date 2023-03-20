@@ -33,6 +33,17 @@ function MyNavbar() {
       })
   }, [])
 
+  const handleLogout = (e) => {
+    e.preventDefault()
+axios.post("http://localhost:4000/logout")
+.then((res) => {
+
+setTimeout(() => {
+window.location.reload();
+}, 300);
+})
+}
+
   let avatar = user.map((user) => user.avatar_url)
   const nr = user.map((user) => user.total_friends)
   const totalMessages = user.map((user) => user.total_messages_received)
@@ -51,12 +62,20 @@ function MyNavbar() {
             <Nav.Link href="/users" style={{ color: 'white', display: `${navBarUsers}`, marginLeft: "5px", cursor: "pointer" }}>Users👥</Nav.Link>
             <Nav.Link href="/friends" style={{ color: 'white', display: `${navBarUsers}`, marginLeft: "30px", cursor: "pointer" }}>Friends(<span style={{color: "red"}}>{nr}</span>)👫</Nav.Link>
             <Nav.Link href="/messenges" style={{ color: 'white', display: `${navBarUsers}`, marginLeft: "30px", cursor: "pointer" }}>Messages(<span style={{color: "red"}}>{totalMessages}</span>)📩</Nav.Link>
+            <Nav.Link href="/create-todo" style={{ color: 'white', display: `${navBarUsers}`, marginLeft: "30px", cursor: "pointer" }}>Create Todo📝</Nav.Link>
+
             <Nav.Link href="/register" style={{ color: 'white', marginLeft: "30px", cursor: "pointer", display: `${register}` }}>Register 🔑</Nav.Link>
             <NavDropdown style={{display: `${navBarUsers}`, position: "absolute", right: "90px"}}
             
             title={<div><img alt={avatar}style={{height: "30px", width: "30px", marginRight: "8px", borderRadius: "5px", objectFit: "cover"}}src={avatar}/>Settings</div>} id="basic-nav-dropdown" className="account-dropdown">
   <NavDropdown.Item href="/select-avatar">Select Avatar 📷</NavDropdown.Item>
   <NavDropdown.Item href="/profile">Account 🔧</NavDropdown.Item>
+  <NavDropdown.Item>
+  <form action="/logout" method="POST">
+    <button style={{backgroundColor: "red", border: "1px solid red", color: "white", borderRadius: "4px", paddingLeft: "5px", paddingRight: "7px"}}onClick={handleLogout}>Logout</button>
+  </form>
+  </NavDropdown.Item>
+
 </NavDropdown>
           </Nav>
         </Navbar.Collapse>
