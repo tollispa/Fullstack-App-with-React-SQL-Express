@@ -17,7 +17,7 @@ function deleteTodos (req, res)  {
        
      }
    if(ID !== userID) {
-    console.log(ID, userID)
+    
    res.status(404).send({messege: "Not authorized!"})
    return
    }

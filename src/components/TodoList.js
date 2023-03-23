@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 function TodoList() {
     const {userID} = useParams();
     const [todos, setTodos] = useState([]);
+    const [auth, setAuth] = useState(false)
   
 
     const completed = (ID) => {
@@ -34,10 +35,26 @@ function TodoList() {
                
             })
             .catch((error) => {
-                console.log(error);
+                console.log("here",error);
+                setAuth(true)
+                
             });
     }, [userID]);
-
+if (auth === true) {
+  return <div style={{textAlign: "center"}}>
+  <h1 style={{fontSize: "24px", fontWeight: "bold"}}>
+    You need to be friends to see his/her Todo-List!
+  </h1>
+  <div style={{display: "flex", justifyContent: "center", marginTop: "16px"}}>
+    <Link to="/users" style={{marginRight: "32px", fontSize: "18px", fontWeight: "bold"}}>
+      Back to all users
+    </Link>
+    <Link to="/" style={{fontSize: "18px", fontWeight: "bold"}}>
+      Back to homepage
+    </Link>
+  </div>
+</div>
+}
     const deleteTodo = (ID) => {
         axios.delete(`http://localhost:4000/todos/${userID}`, {
           data: {
@@ -53,12 +70,13 @@ function TodoList() {
           
         }).catch((err) => {
           toast.error(err.response.data.messege)
+          
         })
       }
 if (todos.length === 0) {
     return <div style={{textAlign: "center"}}>
     <h1 style={{fontSize: "24px", fontWeight: "bold"}}>
-      You need to be friends to see his/her Todo-List!
+      This user has no list!
     </h1>
     <div style={{display: "flex", justifyContent: "center", marginTop: "16px"}}>
       <Link to="/users" style={{marginRight: "32px", fontSize: "18px", fontWeight: "bold"}}>

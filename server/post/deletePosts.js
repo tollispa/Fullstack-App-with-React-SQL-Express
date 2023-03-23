@@ -1,6 +1,6 @@
 const express = require("express");
 const deletePost = express.Router();
-// const Joi = require('joi');
+
 const db = require("../database/db");
 deletePost.delete("/", (req, res) => {
     const id = req.session.userId
@@ -14,7 +14,7 @@ deletePost.delete("/", (req, res) => {
             console.log(err)
         }else {
             res.send({message: "Post deleted!"})
-            console.log("deleted post")
+           
         }
     })
 })
