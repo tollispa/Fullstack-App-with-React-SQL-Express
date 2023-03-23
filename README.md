@@ -5,7 +5,7 @@ Welcome to the React Todo App with User Authentication, Friend Management, and M
 
 Getting Started
 To get started with the React Todo App, you will need to have Node.js and MySQL installed on your local machine.
-Open the PostsTodolist.sql file, copy the database and creating one in your local computer.
+Open the PostsTodolist.sql file, copy the database and create one exacly like that in your local computer.
 Go to the server and run node index.js to start the server.
 then go to the client and run npm start to start the client.
 
