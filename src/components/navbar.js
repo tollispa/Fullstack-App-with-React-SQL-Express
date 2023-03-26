@@ -1,9 +1,10 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import axios from "axios"
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useNavigate } from "react-router-dom";
 
 
 function MyNavbar() {
@@ -11,6 +12,8 @@ function MyNavbar() {
   const [login, setLogin] = useState("Login")
   const [register, setRegister] = useState("block")
   const [user, setUser] = useState([])
+const navigate = useNavigate()
+
   useEffect(() => {
     axios.get("http://localhost:4000/user")
     .then((res) => {
@@ -27,7 +30,7 @@ function MyNavbar() {
         setNavbarUsers("block")
         setRegister("none")
         setLogin("Home🏠")
-        console.log(res)
+        
       }).catch((err) => {
         console.log(err)
       })
@@ -37,10 +40,11 @@ function MyNavbar() {
     e.preventDefault()
 axios.post("http://localhost:4000/logout")
 .then((res) => {
-
+  navigate("/")
 setTimeout(() => {
 window.location.reload();
-}, 300);
+
+}, 100);
 })
 }
 

@@ -39,7 +39,7 @@ function Login() {
 
 //     }
 //   })
-// }, [])
+// }, []) // If Avatar has not been chosen yet, an alert willl pop up to remind user to choose an Avatar
 
   
     const handleSubmit = (e) => {
